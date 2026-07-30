@@ -1,0 +1,37 @@
+{
+  "itemGroup.lqdfxextras": "Example Mod Tab",
+  "block.lqdfxextras.example_block": "Example Block",
+  "item.lqdfxextras.example_item": "Example Item",
+  "lqdfxextras.display.wax_off": "Workstation POI restored",
+  "lqdfxextras.display.wax_on": "Workstation POI disabled",
+
+
+  "lqdfxextras.configuration.Pacifier.button":  "Pacifier",
+  "lqdfxextras.configuration.Pacifier.pacifier_enabled": "Enable Pacifier System",
+  "lqdfxextras.configuration.Pacifier.pacifier_exclude_boss": "Boss Mobs Excluded from Pacification",
+  "lqdfxextras.configuration.Pacifier.pacifier_exclude_monster": "Monster Mobs Excluded from Pacification",
+  "lqdfxextras.configuration.Pacifier.pacifier_exclude_animal": "Animal Mobs Excluded from Pacification",
+  "lqdfxextras.configuration.Pacifier.pacifier_in_nether": "Enable Pacifier in the Nether",
+  "lqdfxextras.configuration.Pacifier.pacifier_in_end": "Enable Pacifier in the End",
+
+  "lqdfxextras.configuration.MobRules.button":  "Mob Rules",
+  "lqdfxextras.configuration.MobRules.mr_creepers_burm": "Creepers Burn in Daylight",
+  "lqdfxextras.configuration.MobRules.mr_vex_spawn": "Allow Vexes to Spawn",
+  "lqdfxextras.configuration.MobRules.mr_evoker_death": "Evokers Drop Special Loot",
+  "lqdfxextras.configuration.MobRules.mr_creeper_griefing": "Creeper Explosions Damage Blocks",
+  "lqdfxextras.configuration.MobRules.mr_enderman_griefing": "Endermen Pick Up Blocks",
+  "lqdfxextras.configuration.MobRules.mr_silverfish_griefing": "Silverfish Break Blocks",
+  "lqdfxextras.configuration.MobRules.mr_ghast_griefing": "Ghast Fireballs Damage Terrain",
+  "lqdfxextras.configuration.MobRules.mr_farm_land": "Mobs Can Trample Farmland",
+
+  "lqdfxextras.configuration.BetterMining.button":  "Better Mining",
+  "lqdfxextras.configuration.BetterMining.bm_enabled": "Enable Better Mining",
+  "lqdfxextras.configuration.BetterMining.bm_efficiency_lvl": "Required Efficiency Level",
+  "lqdfxextras.configuration.BetterMining.bm_haste_lvl": "Required Haste Level",
+  "lqdfxextras.configuration.BetterMining.bm_mining_speed_multiplier": "Mining Speed Multiplier (0.25–2.5)",
+  "lqdfxextras.configuration.BetterMining.bm_tools": "Tools Affected by Better Mining",
+  "lqdfxextras.configuration.BetterMining.bm_blocks_affected": "Blocks Affected by Better Mining",
+
+  "lqdfxextras.configuration.WaxedWorkStations.button":  "Waxed Workstations",
+  "lqdfxextras.configuration.WaxedWorkStations.wws_enabled": "Enable Waxed WorkStations"
+}

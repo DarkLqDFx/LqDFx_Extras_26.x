@@ -1,0 +1,28 @@
+[Pacifier]
+pacifier_enabled = true/false
+pacifier_exclude_boss = ["minecraft:ender_dragon", "minecraft:wither", "minecraft:elder_guardian"]
+pacifier_exclude_monster = ["minecraft:enderman", "minecraft:pillager", "minecraft:vindicator", "minecraft:evoker", "minecraft:ravager", "minecraft:witch"]
+pacifier_exclude_animal = ["minecraft:cow"]
+pacifier_in_nether = true/false
+pacifier_in_end = true/false
+
+[Mob Rules]
+mr_creepers_burm = true/false
+mr_vex_spawn = true/false
+mr_evoker_death = true/false
+
+mr_creeper_griefing = true/false
+mr_enderman_griefing = true/false
+mr_silverfish_griefing = true/false
+mr_ghast_griefing = true/false
+mr_farm_land = true/false
+
+[Better Mining]
+bm_enabled = true/false
+bm_efficiency_lvl = (int)
+bm_haste_lvl = (int)
+bm_tools = ["minecraft:diamond_pickaxe", minecraft:netherite_pickaxe"]
+bm_blocks_affected = ["minecraft:deepslate", "minecraft:tuff", "minecraft:granite"]
+
+[Waxed WorkStations]
+wws_enabled = true/false

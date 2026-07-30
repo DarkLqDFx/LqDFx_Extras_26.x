@@ -1,0 +1,17 @@
+# Main Class
+net.neoforged.fml.startup.DataClient
+
+# NeoForge Run-Type Program Arguments
+--assetIndex
+30
+--assetsDir
+C:\\Users\\Russell\\.gradle\\caches\\neoformruntime\\assets
+
+# User Supplied Program Arguments
+--mod
+lqdfxextras
+--all
+--output
+"D:\\Minecraft Stuff\\Minecraft Mods Dev\\InteliJ Projects\\LqDFx Extras 26.x\\src\\generated\\resources"
+--existing
+"D:\\Minecraft Stuff\\Minecraft Mods Dev\\InteliJ Projects\\LqDFx Extras 26.x\\src\\main\\resources"
