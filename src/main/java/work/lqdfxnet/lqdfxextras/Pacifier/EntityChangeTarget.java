@@ -10,7 +10,6 @@ import net.minecraft.world.level.Level;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.living.LivingChangeTargetEvent;
-import work.lqdfxnet.lqdfxextras.Lqdfxextras;
 import work.lqdfxnet.lqdfxextras.ModConfigCommon;
 
 @EventBusSubscriber

@@ -8,7 +8,6 @@ import net.minecraft.world.entity.monster.Slime;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
-import work.lqdfxnet.lqdfxextras.Lqdfxextras;
 
 @EventBusSubscriber
 public class EntityJoinLevel {
