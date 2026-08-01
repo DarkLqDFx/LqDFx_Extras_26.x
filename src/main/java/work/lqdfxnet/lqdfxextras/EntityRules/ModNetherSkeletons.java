@@ -1,4 +1,4 @@
-package work.lqdfxnet.lqdfxextras.GameRules;
+package work.lqdfxnet.lqdfxextras.EntityRules;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.Registries;
@@ -15,7 +15,7 @@ import net.neoforged.bus.api.ICancellableEvent;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
-import work.lqdfxnet.lqdfxextras.Int.ModGameRules;
+import work.lqdfxnet.lqdfxextras.ModConfigCommon;
 
 import javax.annotation.Nullable;
 
@@ -30,18 +30,33 @@ public class ModNetherSkeletons {
 
     private static void execute(@Nullable Event event, LevelAccessor world, double x, double y, double z, Entity entity) {
         if (entity == null) return;
-        if (!world.getBiome(BlockPos.containing(x, y, z)).is(TagKey.create(Registries.BIOME, Identifier.parse("minecraft:is_nether"))))
-            return;
+
+        BlockPos pos = BlockPos.containing(x, y, z);
+
+        // Only operate in Nether biomes
+        boolean isNether = world.getBiome(pos)
+                .is(TagKey.create(Registries.BIOME, Identifier.parse("minecraft:is_nether")));
+
+        if (!isNether) return;
+
         if (entity instanceof Skeleton) {
-            if (world instanceof ServerLevel serverLevel && !serverLevel.getGameRules().get(ModGameRules.NETHER_SKELETONS.get())) return;
-            if (event instanceof ICancellableEvent canCancel) {
-                canCancel.setCanceled(true);
-            }
+
+            if (!netherSkeletonReplacementEnabled()) return;
+
+            if (event instanceof ICancellableEvent canCancel) canCancel.setCanceled(true);
+
+            // Spawn a Wither Skeleton instead
             if (world instanceof ServerLevel serverLevel) {
-                Entity entityToSpawn = EntityType.WITHER_SKELETON.spawn(serverLevel, BlockPos.containing(x, y, z), EntitySpawnReason.NATURAL);
-                if (entityToSpawn != null) entityToSpawn.setDeltaMovement(0, 0, 0);
+                Entity witherSkeleton = EntityType.WITHER_SKELETON.spawn(serverLevel, pos, EntitySpawnReason.NATURAL);
+                if (witherSkeleton != null) {
+                    witherSkeleton.setDeltaMovement(0, 0, 0);
+                }
             }
         }
+    }
+
+    private static boolean netherSkeletonReplacementEnabled() {
+        return ModConfigCommon.mrNetherSkeleton.get();
     }
 }
 

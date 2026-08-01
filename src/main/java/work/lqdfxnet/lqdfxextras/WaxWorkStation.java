@@ -36,6 +36,7 @@ public class WaxWorkStation {
         Level level = event.getLevel();
 
         if(level.isClientSide())  return;
+        if (!waxWorkstationsEnabled()) return;
         if (!player.isShiftKeyDown()) return;
 
         ItemStack held = event.getItemStack();
@@ -86,5 +87,9 @@ public class WaxWorkStation {
             event.setCancellationResult(InteractionResult.SUCCESS);
             event.setCanceled(true);
         }
+    }
+
+    private static boolean waxWorkstationsEnabled() {
+        return ModConfigCommon.wwsEnabled.get();  // Your config boolean
     }
 }

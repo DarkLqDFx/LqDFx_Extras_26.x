@@ -35,6 +35,8 @@ public class ModConfigCommon {
     public static ModConfigSpec.BooleanValue mrSilverfishGriefing;
     public static ModConfigSpec.BooleanValue mrGhastGriefing;
     public static ModConfigSpec.BooleanValue mrFarmLand;
+    public static ModConfigSpec.BooleanValue mrNetherSkeleton;
+
 
     // Better Mining
     public static ModConfigSpec.BooleanValue bmEnabled;
@@ -90,14 +92,15 @@ public class ModConfigCommon {
         BUILDER.comment("Mob behavior rule toggles").push("Mob Rules");
 
         mrCreepersBurm = BUILDER.comment("Creepers burn in daylight").define("mr_creepers_burm", true);
-        mrVexSpawn = BUILDER.comment("Allow vexes to spawn normally").define("mr_vex_spawn", true);
-        mrEvokerDeath = BUILDER.comment("Evokers drop special loot on death").define("mr_evoker_death", true);
+        mrVexSpawn = BUILDER.comment("Allow vexes to spawn normally (TRUE Vanilla behaviour)").define("mr_vex_spawn", true);
+        mrEvokerDeath = BUILDER.comment("Evokers death trigger Vex to despawn").define("mr_evoker_death", true);
 
-        mrCreeperGriefing = BUILDER.comment("Creeper explosions damage blocks").define("mr_creeper_griefing", true);
-        mrEndermanGriefing = BUILDER.comment("Endermen pick up blocks").define("mr_enderman_griefing", true);
-        mrSilverfishGriefing = BUILDER.comment("Silverfish break blocks").define("mr_silverfish_griefing", true);
-        mrGhastGriefing = BUILDER.comment("Ghast fireballs damage terrain").define("mr_ghast_griefing", true);
-        mrFarmLand = BUILDER.comment("Mobs can trample farmland").define("mr_farm_land", true);
+        mrCreeperGriefing = BUILDER.comment("Creeper explosions damage blocks (TRUE Vanilla behaviour)").define("mr_creeper_griefing", true);
+        mrEndermanGriefing = BUILDER.comment("Endermen pick up blocks (TRUE Vanilla behaviour)").define("mr_enderman_griefing", true);
+        mrSilverfishGriefing = BUILDER.comment("Silverfish infest blocks (TRUE Vanilla behaviour)").define("mr_silverfish_griefing", true);
+        mrGhastGriefing = BUILDER.comment("Ghast fireballs damage terrain (TRUE Vanilla behaviour)").define("mr_ghast_griefing", true);
+        mrFarmLand = BUILDER.comment("Mobs trample farmland (TRUE Vanilla behaviour)").define("mr_farm_land", true);
+        mrNetherSkeleton = BUILDER.comment("Replace Skeletons in Nether with Wither Skeletons)").define("mr_farm_land", true);
 
         BUILDER.pop();
 

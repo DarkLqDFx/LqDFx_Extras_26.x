@@ -1,4 +1,4 @@
-package work.lqdfxnet.lqdfxextras.Util;
+package work.lqdfxnet.lqdfxextras.Pacifier;
 
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.Brain;
@@ -19,13 +19,13 @@ import java.util.Optional;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 
-public class ModHostilityCache {
+public class MobHostilityCache {
 
     private static final Map<UUID, Boolean> CACHE = new ConcurrentHashMap<>();
 
     public static boolean isNaturallyHostile(Mob mob, Player player) {
 
-        Boolean override = ModHostilityOverride.getOverride(mob);
+        Boolean override = MobHostilityOverride.getOverride(mob);
         if (override != null) return override;
 
         // Cached result?

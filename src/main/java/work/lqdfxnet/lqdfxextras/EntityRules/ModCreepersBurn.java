@@ -1,9 +1,8 @@
-package work.lqdfxnet.lqdfxextras.GameRules;
+package work.lqdfxnet.lqdfxextras.EntityRules;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.monster.Creeper;
@@ -13,7 +12,7 @@ import net.minecraft.world.level.LightLayer;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.tick.EntityTickEvent;
-import work.lqdfxnet.lqdfxextras.Int.ModGameRules;
+import work.lqdfxnet.lqdfxextras.ModConfigCommon;
 
 import static work.lqdfxnet.lqdfxextras.Lqdfxextras.queueServerWork;
 
@@ -29,14 +28,16 @@ public class ModCreepersBurn {
         if (entity == null) return;
 
         if (entity instanceof Creeper) {
-            if (world instanceof ServerLevel serverLevel && !serverLevel.getGameRules().get(ModGameRules.CREEPERS_BURN.get())) return;   // Only trigger if the gamerule is set to true
 
-            boolean worldDim = world.getBiome(BlockPos.containing(x, y, z)).is(TagKey.create(Registries.BIOME, Identifier.parse("minecraft:is_overworld")));
-            boolean worldBiome = world.getBiome(BlockPos.containing(x, y, z)).is(TagKey.create(Registries.BIOME, Identifier.parse("c:is_dry")));
+            if (!creepersBurnEnabled()) return;
+
+            BlockPos pos = BlockPos.containing(x, y, z);
+
+            boolean worldDim = world.getBiome(pos).is(TagKey.create(Registries.BIOME, Identifier.parse("minecraft:is_overworld")));
+            boolean worldBiome = world.getBiome(pos).is(TagKey.create(Registries.BIOME, Identifier.parse("c:is_dry")));
             boolean worldDay = world instanceof Level level && level.isBrightOutside();
-            boolean blockSeeSky = world.canSeeSkyFromBelowWater(BlockPos.containing(x, y, z));
-            boolean skyBrightness;
-            skyBrightness = world.getBrightness(LightLayer.SKY, BlockPos.containing(x, y, z)) == 15;
+            boolean blockSeeSky = world.canSeeSkyFromBelowWater(pos);
+            boolean skyBrightness = world.getBrightness(LightLayer.SKY, pos) == 15;
 
             if (worldDim && worldDay && blockSeeSky && skyBrightness) {
                 if (!entity.isOnFire() && (worldBiome || !entity.isInWaterOrRain()))
@@ -44,5 +45,9 @@ public class ModCreepersBurn {
             }
 
         }
+    }
+
+    private static boolean creepersBurnEnabled() {
+        return ModConfigCommon.mrCreepersBurm.get();
     }
 }

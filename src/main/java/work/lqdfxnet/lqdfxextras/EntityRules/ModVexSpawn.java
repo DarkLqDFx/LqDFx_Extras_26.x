@@ -1,6 +1,5 @@
-package work.lqdfxnet.lqdfxextras.GameRules;
+package work.lqdfxnet.lqdfxextras.EntityRules;
 
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.monster.Vex;
 import net.minecraft.world.level.LevelAccessor;
@@ -9,8 +8,7 @@ import net.neoforged.bus.api.ICancellableEvent;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
-import work.lqdfxnet.lqdfxextras.Int.ModGameRules;
-import work.lqdfxnet.lqdfxextras.Lqdfxextras;
+import work.lqdfxnet.lqdfxextras.ModConfigCommon;
 
 import javax.annotation.Nullable;
 
@@ -24,8 +22,6 @@ public class ModVexSpawn {
         execute(event, event.getLevel(), event.getEntity());
     }
 
-    // Is this even needed?
-
     public static void execute(LevelAccessor world, Entity entity) {
         execute(null, world, entity);
     }
@@ -35,15 +31,16 @@ public class ModVexSpawn {
         if (entity == null) return;
 
         if (entity instanceof Vex) {
-            Lqdfxextras.LOGGER.info("Spawning vex entity??");
-            // check for false in gamerule. True is ok to spawn!
-            if (world instanceof ServerLevel serverLevel && !serverLevel.getGameRules().get(ModGameRules.SPAWN_VEX.get())) {
-                Lqdfxextras.LOGGER.info("Nope! Game rules disabled them!");
-                // Check if Event is cancelable
+            if (!vexSpawnEnabled()) {
                 if (event instanceof ICancellableEvent cancellableEvent) {
                     cancellableEvent.setCanceled(true);
                 }
             }
         }
     }
+
+    private static boolean vexSpawnEnabled() {
+        return ModConfigCommon.mrVexSpawn.get();
+    }
+
 }

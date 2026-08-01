@@ -1,4 +1,4 @@
-package work.lqdfxnet.lqdfxextras.Util;
+package work.lqdfxnet.lqdfxextras.Pacifier;
 
 
 import net.minecraft.world.entity.Mob;
@@ -8,19 +8,19 @@ import net.neoforged.neoforge.event.entity.EntityLeaveLevelEvent;
 import net.neoforged.neoforge.event.entity.living.LivingDeathEvent;
 
 @EventBusSubscriber
-public class ModHostilityCacheInvalidator {
+public class MobHostilityCacheInvalidator {
 
     @SubscribeEvent
     public static void onMobDeath(LivingDeathEvent event) {
         if (event.getEntity() instanceof Mob mob) {
-            ModHostilityCache.invalidate(mob);
+            MobHostilityCache.invalidate(mob);
         }
     }
 
     @SubscribeEvent
     public static void onMobUnload(EntityLeaveLevelEvent event) {
         if (event.getEntity() instanceof Mob mob) {
-            ModHostilityCache.invalidate(mob);
+            MobHostilityCache.invalidate(mob);
         }
     }
 }
